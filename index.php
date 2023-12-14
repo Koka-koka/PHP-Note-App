@@ -2,8 +2,11 @@
 // Functions
 require ("functions.php");
 
-//Connect to db
+//DB Class
 require ("Database.php");
+
+//Response Class
+require ("Response.php");
 
 // Router
 require ("router.php");

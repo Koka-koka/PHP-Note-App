@@ -1,6 +1,7 @@
 <?php
 
-function display($value) {
+function display($value) 
+{
 	echo "<pre>";
 	print_r($value);
 	echo "</pre>";
@@ -8,6 +9,14 @@ function display($value) {
 	die();
 }
 
-function url_is($value) {
+function url_is($value)
+{
 	return $_SERVER['REQUEST_URI'] === $value;
+}
+
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+	if (!$condition) {
+		abort($status);
+	}
 }
