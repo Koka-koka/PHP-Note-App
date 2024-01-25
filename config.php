@@ -1,5 +1,6 @@
 <?php
 return [
+	'domain' => '/laracast-php/',
 	'database' => [
 		'host'    => 'localhost',
 		'dbname'  => 'laracast',

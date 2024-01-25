@@ -1,3 +1,6 @@
+  <?php
+    $config = require ('config.php');
+  ?>
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
@@ -5,10 +8,10 @@
           <div class="hidden md:block">
             <div class="flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="./" class="<?php echo url_is('/laracast-php/') ? "bg-gray-900" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-              <a href="./about" class="<?php echo url_is('/laracast-php/about') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
-              <a href="./notes" class="<?php echo url_is('/laracast-php/notes') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Notes</a>
-              <a href="./contact" class="<?php echo url_is('/laracast-php/contact') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+              <a href="<?php echo $config['domain'] ?>" class="<?php echo url_is($config['domain']) ? "bg-gray-900" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+              <a href="<?php echo $config['domain'] . 'about'?>" class="<?php echo url_is($config['domain'] . 'about') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+              <a href="<?php echo $config['domain'] . 'notes'?>" class="<?php echo url_is($config['domain'] . 'notes') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Notes</a>
+              <a href="<?php echo $config['domain'] . 'contact'?>" class="<?php echo url_is($config['domain'] . 'contact') ? "bg-gray-900 text-white" : 'text-gray-300'; ?> text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
             </div>
           </div>
         </div>
