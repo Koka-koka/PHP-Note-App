@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$errors = [];
 
-	if ($validator::string($_POST['body'], 1, 1000)) {
-		$errors['body'] = 'A body less then 1000 characters is required *';
+	if (!Validator::string($_POST['body'], 1, 1000)) {
+		$errors['body'] = 'A body more then 0 and less then 1000 characters is required *';
 	}	
 
 
@@ -25,4 +25,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 }
 
-require ("./views/note-create.view.php");
+require ("views/notes/create.view.php");
