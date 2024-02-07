@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <a class="text-blue-500 hover:underline" href="./notes">Back to notes...</a>
         <article class="mt-4">  
-          <?=$note['body']?>
+          <?= htmlspecialchars($note['body']) ?>
         </article>
       
     </div>
