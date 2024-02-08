@@ -1,5 +1,5 @@
 <?php
-$config = require ('config.php');
+$config = require base_path('config.php');
 return [
 	$config['domain']             => 'controllers/index.php',
 	$config['domain'] . 'about'   => 'controllers/about.php',
