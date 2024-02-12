@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 function display($value) 
 {
 	echo "<pre>";
