@@ -5,7 +5,7 @@ use Core\Response;
 function display($value) 
 {
 	echo "<pre>";
-	print_r($value);
+	var_dump($value);
 	echo "</pre>";
 
 	die();

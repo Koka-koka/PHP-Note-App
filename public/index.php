@@ -1,6 +1,8 @@
 <?php
 
-const BASE_PATH = __DIR__.'/../';
+define("BASE_PATH", __DIR__.'/../');
+
+define("ROOT_URL", '/' . explode( '/', $_SERVER['REQUEST_URI'])[1] . '/');
 
 require BASE_PATH .'Core/functions.php';
 
