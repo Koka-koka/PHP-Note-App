@@ -18,6 +18,10 @@
                     if (isset($errors['body'])) {
                       echo "<p class=\"text-red-600 mt-2 \">{$errors['body']}</p>";
                     }
+                    
+                    if (!empty($notice)) {
+                      echo "<p class=\"text-green-600 mt-2 \">{$notice}</p>";
+                    }
                   ?>
 
                 </div>

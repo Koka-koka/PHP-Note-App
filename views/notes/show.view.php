@@ -12,7 +12,7 @@
         <form class="mt-4" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="id" value="<?=$note['id']?>">
-          <button class="text-red-500 ">Delete note</button>
+          <button class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Delete note</button>
         </form> 
     </div>
   </main>

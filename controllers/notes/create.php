@@ -7,6 +7,7 @@ $config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $errors = [];
+$notice = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -20,10 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		'body' => $_POST['body'],
 		'user_id' => 1,
 		]);
+
+		$notice = 'Note created successfully';
 	}
 }
 
 view("notes/create.view.php", [
     'heading' => 'Create Note',
-    'errors' => $errors
+    'errors' => $errors,
+    'notice' => $notice
 ]);
