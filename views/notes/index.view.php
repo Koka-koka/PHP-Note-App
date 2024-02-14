@@ -16,7 +16,7 @@
       </ul>
 
       <p class="mt-4">
-        <a href="<?= ROOT_URL .'notes/create'?>" class="text-blue-500 hover:underline">Create Note</a>
+        <a href="<?= ROOT_URL .'note/create'?>" class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Note</a>
       </p>
 
     </div>
