@@ -15,4 +15,7 @@ $router->patch(ROOT_URL . 'note', 'controllers/notes/update.php');
 $router->delete(ROOT_URL . 'note', 'controllers/notes/destroy.php');
 $router->post(ROOT_URL . 'notes', 'controllers/notes/store.php');
 
+$router->get(ROOT_URL . 'register', 'controllers/registration/create.php');
+$router->post(ROOT_URL . 'register', 'controllers/registration/store.php');
+
 

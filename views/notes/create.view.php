@@ -6,7 +6,6 @@
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     
       <form method="post" action="<?= ROOT_URL .'notes'?>">
-        <input type="hidden" name="_method" value="POST">
         <div class="space-y-12">
 
               <div class="col-span-full">
