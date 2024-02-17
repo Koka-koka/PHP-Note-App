@@ -17,30 +17,33 @@ if (!Validator::email($email)) {
 
 if (!Validator::string($password, 7, 255)) {
 	$errors['password'] = 'A password more then 7 and less then 255 characters is required *';
-}	
+}
 
 if (!empty($errors)) {
 	return view("registration/create.view.php", [
-	    'errors' => $errors
+		'errors' => $errors,
 	]);
 }
 
 $user = $db->query('Select * from users where email = :email', [
-	'email' => $email
+	'email' => $email,
 ])->find();
 
 if ($user) {
-	header('location: ./');
+
+	header('location: ./login');
 	exit();
-}else {
+
+} else {
+
 	$db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
-	'email' => $email,
-	'password' => $password
+		'email' => $email,
+		'password' => password_hash($password, PASSWORD_BCRYPT),
 	]);
 
-	$_SESSION['user'] = [
-		'email' => $email
-	];
+	login([
+		'email' => $email,
+	]);
 
 	header('location: ./');
 

@@ -16,6 +16,8 @@ $router->delete(ROOT_URL . 'note', 'controllers/notes/destroy.php');
 $router->post(ROOT_URL . 'notes', 'controllers/notes/store.php');
 
 $router->get(ROOT_URL . 'register', 'controllers/registration/create.php')->only('guest');
-$router->post(ROOT_URL . 'register', 'controllers/registration/store.php');
+$router->post(ROOT_URL . 'register', 'controllers/registration/store.php')->only('guest');
 
-
+$router->get(ROOT_URL . 'login', 'controllers/session/create.php')->only('guest');
+$router->post(ROOT_URL . 'session', 'controllers/session/store.php')->only('guest');
+$router->delete(ROOT_URL . 'logout', 'controllers/session/destroy.php')->only('auth');
