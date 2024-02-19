@@ -5,18 +5,17 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$currentUserId = 1;
+$currentUserId = $_SESSION['user']['id'];
 
-$note = $db->query('select * from notes where id = :id',[   
-    'id' => $_POST['id']
+$note = $db->query('select * from notes where id = :id', [
+	'id' => $_POST['id'],
 ])->find_or_fail();
 
 authorize($note['user_id'] === $currentUserId);
-    
+
 $db->query('delete from notes where id = :id', [
-    'id' => $_POST['id']
+	'id' => $_POST['id'],
 ]);
 
 header('location: ./notes');
 exit();
-    

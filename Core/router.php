@@ -3,59 +3,48 @@
 namespace Core;
 
 use Core\Middleware\Middleware;
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
 
-class Router
-{
+class Router {
 	protected $routes = [];
 
-	public function add($method, $uri, $controller)
-	{
+	public function add($method, $uri, $controller) {
 		$this->routes[] = [
-			'uri'        => $uri,
+			'uri' => $uri,
 			'controller' => $controller,
-			'method'     => $method,
-			'middleware' => null
+			'method' => $method,
+			'middleware' => null,
 		];
 
 		return $this;
 	}
 
-	public function get($uri, $controller)
-	{
+	public function get($uri, $controller) {
 		return $this->add('GET', $uri, $controller);
-	}	
+	}
 
-	public function post($uri, $controller)
-	{
+	public function post($uri, $controller) {
 		return $this->add('POST', $uri, $controller);
-	}	
+	}
 
-	public function delete($uri, $controller)
-	{
+	public function delete($uri, $controller) {
 		return $this->add('DELETE', $uri, $controller);
-	}	
+	}
 
-	public function patch($uri, $controller)
-	{
+	public function patch($uri, $controller) {
 		return $this->add('PATCH', $uri, $controller);
 	}
 
-	public function put($uri, $controller)
-	{
+	public function put($uri, $controller) {
 		return $this->add('PUT', $uri, $controller);
 	}
 
-	protected function abort($code = 404) 
-	{
+	protected function abort($code = 404) {
 		http_response_code($code);
 		require base_path("views/{$code}.php");
 		die();
 	}
 
-	public function only($key) 
-	{
+	public function only($key) {
 		$this->routes[array_key_last($this->routes)]['middleware'] = $key;
 
 		return $this;
@@ -69,7 +58,7 @@ class Router
 
 				Middleware::resolve($route['middleware']);
 
-				return require base_path($route['controller']);
+				return require base_path('Http/controllers/' . $route['controller']);
 			}
 		}
 
