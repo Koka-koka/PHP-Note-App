@@ -26,3 +26,5 @@ $router = new \Core\Router();
 $routes = require base_path('routes.php');
 
 $router->route($uri, $method);
+
+Core\Session::unflash();
