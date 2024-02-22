@@ -1,51 +1,32 @@
 <?php
 
-use Core\App;
-use Core\Database;
-use Core\Validator;
+use Core\Authenticator;
+use Core\Registration;
+use Http\Forms\LoginForm;
 
-$db = App::resolve(Database::class);
+$form = LoginForm::validate($attributes = [
+	'email' => $_POST['email'],
+	'password' => $_POST['password'],
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+]);
 
-$errors = [];
+$register = new Registration();
 
-if (!Validator::email($email)) {
-	$errors['email'] = 'Please provide a valid email address';
-}
+$auth = new Authenticator();
 
-if (!Validator::string($password, 7, 255)) {
-	$errors['password'] = 'A password more then 7 and less then 255 characters is required *';
-}
+$registered = $register->attempt($attributes['email'], $attributes['password']);
 
-if (!empty($errors)) {
-	return view("registration/create.view.php", [
-		'errors' => $errors,
-	]);
-}
+if (!$registered) {
 
-$user = $db->query('Select * from users where email = :email', [
-	'email' => $email,
-])->find();
-
-if ($user) {
-
-	header('location: ./login');
-	exit();
+	$form->error('user', 'User already exists')->throw();
 
 } else {
 
-	$db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
-		'email' => $email,
-		'password' => password_hash($password, PASSWORD_BCRYPT),
+	$auth->login([
+		'email' => $attributes['email'],
+		'password' => $attributes['password'],
 	]);
 
-	login([
-		'email' => $email,
-	]);
+	redirect('./');
 
-	header('location: ./');
-
-	exit();
 }

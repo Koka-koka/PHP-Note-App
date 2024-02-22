@@ -15,8 +15,8 @@ class LoginForm {
 			$this->errors['email'] = 'Please provide a valid email address';
 		}
 
-		if (!Validator::string($attributes['password'])) {
-			$this->errors['password'] = 'Please provide a valid password';
+		if (!Validator::string($attributes['password'], 7, 255)) {
+			$this->errors['password'] = 'A password more then 7 and less then 255 characters is required *';
 		}
 
 	}

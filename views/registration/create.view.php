@@ -14,15 +14,10 @@
 		      <div>
 		        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
 		        <div class="mt-2">
-		          <input id="email" name="email" value="<?=$_POST['email'] ?? '';?>" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+		          <input id="email" name="email" value="<?=old('email');?>" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 		        </div>
-		          <?php
-if (isset($errors['email'])) {
-	echo "<p class=\"text-red-600 mt-2 \">{$errors['email']}</p>";
-}
-?>
-		      </div>
 
+		      </div>
 		      <div>
 		        <div class="flex items-center justify-between">
 		          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
@@ -31,8 +26,15 @@ if (isset($errors['email'])) {
 		          <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 		        </div>
 		        <?php
+if (isset($errors['email'])) {
+	echo "<p class=\"text-red-600 mt-2 \">{$errors['email']}</p>";
+}
+
 if (isset($errors['password'])) {
 	echo "<p class=\"text-red-600 mt-2 \">{$errors['password']}</p>";
+}
+if (isset($errors['user'])) {
+	echo "<p class=\"text-red-600 mt-2 \">{$errors['user']}</p>";
 }
 ?>
 		      </div>
