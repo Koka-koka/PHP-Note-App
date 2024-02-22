@@ -1,5 +1,4 @@
 <?php
-$config = require base_path('config.php');
 
 $router->get(ROOT_URL, 'index.php');
 $router->get(ROOT_URL . 'about', 'about.php');

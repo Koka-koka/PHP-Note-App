@@ -25,6 +25,17 @@ $router = new \Core\Router();
 
 $routes = require base_path('routes.php');
 
-$router->route($uri, $method);
+try {
+
+	$router->route($uri, $method);
+
+} catch (Core\ValidationException $exception) {
+
+	Core\Session::flash('errors', $exception->errors);
+
+	Core\Session::flash('old', $exception->old);
+
+	return redirect($router->previous_url());
+}
 
 Core\Session::unflash();
