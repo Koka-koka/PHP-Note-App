@@ -1,0 +1,16 @@
+{
+    "name": "user/laracast-php",
+    "authors": [
+        {
+            "name": "Koka M",
+            "email": "kokamerabishvili@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
